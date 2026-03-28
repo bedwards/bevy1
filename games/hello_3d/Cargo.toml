@@ -1,0 +1,9 @@
+[package]
+name = "hello_3d"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+bevy.workspace = true
+shared.workspace = true

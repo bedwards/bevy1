@@ -1,0 +1,28 @@
+[workspace]
+resolver = "2"
+members = [
+    "games/hello_2d",
+    "games/hello_3d",
+    "libs/shared",
+    "libs/utils",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/bedwards/bevy1"
+
+[workspace.dependencies]
+bevy = "0.18"
+shared = { path = "libs/shared" }
+utils = { path = "libs/utils" }
+
+# Enable optimizations for dependencies in dev builds (Bevy is slow without this)
+[profile.dev.package."*"]
+opt-level = 2
+
+# Enable LTO for release builds
+[profile.release]
+lto = "thin"
+codegen-units = 1
